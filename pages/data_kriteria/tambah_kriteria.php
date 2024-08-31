@@ -42,7 +42,7 @@
             <a href="index.php?page=data_kriteria" class="btn btn-secondary btn-square rounded-0">
                 <i class="fas fa-chevron-left fa-sm"></i> Kembali
             </a>
-            <button type="submit" class="btn btn-success btn-square rounded-0">
+            <button type="submit" class="btn btn-custom btn-square rounded-0">
                 <i class="fas fa-save fa-sm"></i> Simpan
             </button>
         </form>

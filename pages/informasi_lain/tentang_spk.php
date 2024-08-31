@@ -6,10 +6,10 @@
 <!-- DataTales Example -->
 <div class="card mb-4 rounded-0">
     <div class="card-body" style="padding: 35px;">
-    	<h5 class="mb-3">Tentang Sistem Penunjang Keputusan (SPK)</h5>
+    	<h5 class="mb-3">Tentang Sistem Pendukung Keputusan (SPK)</h5>
         <div class="text-justify font-weight-light"> 
           <p>
-          	<b>Sistem Penunjang Keputusan (SPK)</b> merupakan sebuah sistem yang dimana untuk membuat sebuah keputusan dalam menentukan siswa berprestasi disekolah, terutama di SMKN 9 Kota Bekasi berdasarkan kriteria-kriteria yang telah ditentukan. Sistem Penunjang Keputusan ini menggunakan metode / algoritma <b>Simple Additive Weighting (SAW)</b>. metode SAW ini berfungsi untuk penyelesaian dalam menentukan siswa yang terpilih serta mendapatkan predikat siswa berprestasi. 
+          	<b>Sistem Penunjang Keputusan (SPK)</b> merupakan sebuah sistem yang dimana untuk membuat sebuah keputusan dalam menentukan penerimaan beasiswa tahfidz di sekolah, terutama di SD Negeri 1 Birayang berdasarkan kriteria-kriteria yang telah ditentukan. Sistem Penunjang Keputusan ini menggunakan metode / algoritma <b>Simple Additive Weighting (SAW)</b>. metode SAW ini berfungsi untuk penyelesaian dalam menentukan siswa yang terpilih serta mendapatkan beasiswa tahfidz. 
           </p>
           <p>
           	Pengertian Metode SAW (Simple Additive Weighting) merupakan salah satu metode dalam pengambilan keputusan multi kriteria yang sederhana dan klasik. Metode ini termasuk dalam metode pembobotan atau dikenal sebagai metode penjumlahan terbobot. Konsep dasar metode SAW adalah mencari penjumlahan terbobot dari rating kinerja pada setiap alternatif pada semua atribut.

@@ -12,12 +12,11 @@
             document.location.href = "index.php?page=data_siswa";
         </script>';
 	}
-
 ?>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-1">
-  <h1 class="h3 text-gray-800">Data Alternatif</h1>
+  <h1 class="h3 text-gray-800">Data Siswa</h1>
 </div>
 
 <!-- popup status -->
@@ -36,10 +35,10 @@
 <!-- DataTales Example -->
 <div class="card mb-4 rounded-0">
   <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
-		<a href="index.php?page=tambah_alter" class="btn btn-success btn-square btn-sm rounded-0">
-      <i class="fas fa-plus fa-sm"></i> Tambah Alternatif
+		<a href="index.php?page=tambah_alter" class="btn btn-custom btn-square btn-sm rounded-0">
+      <i class="fas fa-plus fa-sm"></i> Tambah Data Siswa
     </a>
-    <h6 class="m-0 text-gray-800 d-none d-sm-block">Tabel Data Alternatif Siswa</h6>
+    <h6 class="m-0 text-gray-800 d-none d-sm-block">Tabel Data Siswa atau Alternatif</h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -47,10 +46,10 @@
         <thead>
           <tr>
             <th class="text-nowrap">Kode</th>
-            <th class="text-nowrap">NISN</th>
             <th class="text-nowrap">Nama Siswa</th>
-            <th class="text-nowrap">JK</th>
+            <th class="text-nowrap">Jenis Kelamin</th>
             <th class="text-nowrap">Kelas</th>
+            <th class="text-nowrap">Alamat</th>
             <th class="text-nowrap">Opsi</th>
           </tr>
         </thead>
@@ -61,17 +60,17 @@
       			$no++;
       		?>
             <tr>
-              <td class="text-nowrap"><?= 'A'. $kode = str_pad($no, 2, '0', STR_PAD_LEFT); ?></td>
-              <td class="text-nowrap"><?= $alter['NISN']; ?></td>
-              <td class="text-nowrap"><?= $alter['Nama_Siswa']; ?></td>
-              <td class="text-nowrap"><?= $alter['JK']; ?></td>
+              <td class="text-nowrap"><?= 'D'. $kode = str_pad($no, 2, '0', STR_PAD_LEFT); ?></td>
+              <td class="text-nowrap text-uppercase"><?= $alter['Nama_Siswa']; ?></td>
+              <td class="text-nowrap"><?= $alter['Jenis_Kelamin']; ?></td>
               <td class="text-nowrap"><?= $alter['Kelas']; ?></td>
+              <td class="text-nowrap"><?= $alter['Alamat']; ?></td>
               <td class="text-center text-nowrap">
-              	<a href="index.php?page=edit_alter&edit=<?= $alter['ID_Alter']; ?>" title="Edit Alternatif" class="btn btn-success btn-square rounded-0">
+              	<a href="index.php?page=edit_alter&edit=<?= $alter['ID_Alter']; ?>" title="Edit Alternatif" class="btn btn-custom btn-square rounded-0">
                     <i class="fas fa-edit"></i>
                 </a>
                 
-                <button class="btn btn-success btn-square rounded-0" title="Hapus Alternatif" data-toggle="modal" data-target="#hapusid<?= $alter['ID_Alter']; ?>">
+                <button class="btn btn-custom btn-square rounded-0" title="Hapus Alternatif" data-toggle="modal" data-target="#hapusid<?= $alter['ID_Alter']; ?>">
                     <i class="fas fa-trash"></i>
                 </button>
 
@@ -84,11 +83,11 @@
 								            	<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 								                  <span aria-hidden="true"><i class="fas fa-times fa-xs"></i></span>
 								               </button>
-								            	<p class="modal-title text-left" id="exampleModalLabel">Hapus Alternatif?</p>
+								            	<p class="modal-title text-left" id="exampleModalLabel">Hapus Data Siswa?</p>
 								            </div>
 								            <div class="modal-footer">
 								                <button class="btn btn-secondary rounded-0" type="button" data-dismiss="modal"><i class="fas fa-chevron-left fa-sm"></i> Kembali</button>
-								                <a class="btn btn-success rounded-0" href="index.php?page=data_siswa&delete=<?= $alter['ID_Alter']; ?>"><i class="fas fa-trash fa-sm"></i> Hapus</a>
+								                <a class="btn btn-custom rounded-0" href="index.php?page=data_siswa&delete=<?= $alter['ID_Alter']; ?>"><i class="fas fa-trash fa-sm"></i> Hapus</a>
 								            </div>
 								        </div>
 								    </div>

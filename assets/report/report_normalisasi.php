@@ -9,15 +9,15 @@
 	$tgl2 = strftime("%d %B %Y");
 
 	$normali = mysqli_query($koneksi_db, "SELECT Nama_Kriteria FROM data_kriteria");
-  $siswa = mysqli_query($koneksi_db, "SELECT ID_Alter, NISN, Nama_Siswa FROM data_alternatif");
+  $siswa = mysqli_query($koneksi_db, "SELECT ID_Alter, Nama_Siswa FROM data_alternatif");
 
 	$mpdf = new \Mpdf\Mpdf();
 	$mpdf->debug = false;
 
 	$header = '<div class="head" style="border-bottom: 5px double black; font-family: sans-serif;">	
-							<img src="../img/SMKN9_Bekasi.png" width="100" height="100" style="float: left; margin-right: 15px;">
-							<h3 style="float: right; padding-top: 15px;">Laporan Hasil Normalisasi<br>SPK Penentuan Siswa Berprestasi<br>
-							SMK Negeri 9 Kota Bekasi</h3>
+							<img src="../img/logo_birayang.png" width="100" height="100" style="float: left; margin-right: 15px;">
+							<h3 style="float: right; padding-top: 15px;">Laporan Hasil Normalisasi<br>SPK Penerima Beasiswa Tahfidz<br>
+							SD Negeri 1 Birayang</h3>
 						</div>'; 
 
 	$subhead = '<div style="font-family: sans-serif;">
@@ -29,10 +29,11 @@
 	            <thead>
 	                <tr>
 	                    <th>No</th>
-	                    <th>NISN</th>
 	                    <th>Nama Siswa</th>'; 
+	                    $no = 0;
 	                    while ($krit = mysqli_fetch_assoc($normali)) {
-	                   		$tabel .= ' <th>'. $krit['Nama_Kriteria'] .'</th>';
+	                    $no++;
+	                   		$tabel .= ' <th>'. 'C'. $kode = str_pad($no, 2, '0', STR_PAD_LEFT) .'</th>';
 	                    }
 	    $tabel .= '</tr>
 	            </thead>
@@ -42,13 +43,12 @@
                   $no++;
 	      $tabel .= '<tr>
 	                    <td>'. $no .'</td>
-	                    <td>'. $sis['NISN'] .'</td>
 	                    <td>'. $sis['Nama_Siswa'] .'</td>';
                       $hasil = mysqli_query($koneksi_db, "SELECT Hasil_Norm FROM hasil_normalisasi 
                       WHERE ID_Alter = '$sis[ID_Alter]'");
 	                    
 	                    while ($nilai = mysqli_fetch_assoc($hasil)) {
-	                   		$tabel .= '<td>' .$nilai['Hasil_Norm']. '</td>';
+	                   		$tabel .= '<td>' . round($nilai['Hasil_Norm'], 3) . '</td>';
 	                    }
 	      $tabel .= '</tr>';
 	                }
@@ -56,7 +56,7 @@
 	        </table>';
 
 	$date = '<div style="text-align: right; margin-top:50px; font-family: sans-serif;">
-					 	<p>Kota Bekasi, '. $tgl2 .'</p>
+					 	<p>Kab. Hulu Sungai Tengah, '. $tgl2 .'</p>
 					 	<p style="margin-right: 60px;">Admin</p>
 					 	<br><br>
 					 	<p style="margin-right: 12px;">..................................</p>
@@ -67,7 +67,7 @@
 	$mpdf->WriteHTML($subhead);
 	$mpdf->WriteHTML($tabel);
 	$mpdf->WriteHTML($date);
-	$mpdf->SetFooter('SPK Penentuan Siswa Berprestasi|{PAGENO}|Hasil Normalisasi');
+	$mpdf->SetFooter('SPK Penerima Beasiswa Tahfidz|{PAGENO}|Hasil Normalisasi');
 	$mpdf->Output('Laporan Normalisasi.pdf', \Mpdf\Output\Destination::INLINE);
 
 ?>

@@ -16,18 +16,20 @@
 <!-- DataTales Example -->
 <div class="card mb-3 rounded-0">
   <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
-    <h6 class="m-0 text-gray-800">Tabel Penilaian Awal</h6>
+    <h6 class="m-0 text-gray-800">Tabel Penilaian Siswa</h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th class="text-nowrap">Alternatif</th>
+            <th class="text-nowrap">Data Siswa</th>
             <?php 
+              $no = 0;
         			while ($res1 = mysqli_fetch_assoc($datKrit)) :
+              $no++;
         		?>
-            	<th class="text-nowrap"><?= $res1['Nama_Kriteria']; ?></th>
+            	<th class="text-nowrap"><?= 'C'. $kode = str_pad($no, 2, '0', STR_PAD_LEFT); ?></th>
             <?php endwhile; ?>
           </tr>   
         </thead>
@@ -36,7 +38,7 @@
       			while ($res2 = mysqli_fetch_assoc($datSiswa)) :
       		?>
             <tr>
-              <td class="text-nowrap"><?= $res2['Nama_Siswa']; ?></td>
+              <td class="text-nowrap text-uppercase"><?= $res2['Nama_Siswa']; ?></td>
               <?php
               	$nilaiSis = "SELECT Nilai FROM data_penilaian WHERE ID_Alter = '$res2[ID_Alter]'";
 								$hasilSis = mysqli_query($koneksi_db, $nilaiSis);
@@ -54,7 +56,7 @@
 </div>
 <div class="d-flex justify-content-start">
 	<form action="pages/proses_perhitungan/proses_hitung_spk.php" method="post">
-		<button type="submit" class="btn btn-success btn-square rounded-0" name="hitung">
+		<button type="submit" class="btn btn-custom btn-square rounded-0" name="hitung">
     	<i class="fas fa-calculator fa-sm"></i> Hitung
   	</button>
 	</form> 	

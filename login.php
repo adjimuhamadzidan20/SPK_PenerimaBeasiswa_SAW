@@ -17,15 +17,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="adjimuhamadzidan">
-    <link rel="icon" type="image/x-icon" href="assets/img/SMKN9_Bekasi.ico">
+    <link rel="icon" type="image/x-icon" href="assets/img/logo_birayang.ico">
 
-    <title>SPK Siswa Berprestasi - Login</title>
+    <title>SPK Penerima Beasiswa Tahfidz - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" 
+    rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -58,14 +57,16 @@
             margin-bottom: 5rem;
         }
         
-        .btn-success {
-            background-color: #01a3a4;
-            border-color: #01a3a4;
+        .btn-custom {
+            background-color: #192a56;
+            border-color: #192a56;
+            color: white;
         }
 
-        .btn-success:hover {
-            background-color: #019394;
-            border-color: #019394;
+        .btn-custom:hover {
+            background-color: #100C3D;
+            border-color: #100C3D;
+            color: white;
         }
 
     </style>
@@ -87,19 +88,21 @@
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex bg-login-image align-items-center justify-content-center">
                                 <div class="row justify-content-center">
-                                    <div class="col-3 d-flex justify-content-center align-items-center p-0">
-                                      <img src="assets/img/SMKN9_Bekasi.png" alt="SMKN9_Bekasi" title="SMKN9_Bekasi" class="logo">  
+                                    <div class="col-2 d-flex justify-content-center align-items-center p-0 pl-5">
+                                      <img src="assets/img/logo_birayang.png" alt="SDN 1 Birayang" title="SDN 1 Birayang" class="logo">  
                                     </div>
-                                    <div class="col-8 d-flex align-items-center p-0">
-                                      <h5 class="text-white text-uppercase"><span>Sistem Penunjang Keputusan</span><br>Penentuan Siswa Berprestasi</h5>  
+                                    <div class="col-10 d-flex align-items-center">
+                                      <div class="m-auto pl-1">
+                                        <h5 class="text-white text-uppercase"><span>SPK Penerima Beasiswa Tahfidz</span><br>SD Negeri 1 Birayang</h5>  
+                                      </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-4 p-sm-5 p-md-5 p-lg-5 p-xl-5">
                                     <div class="text-center">
-                                        <img src="assets/img/SMKN9_Bekasi.png" alt="SMKN9_Bekasi" title="SMKN9_Bekasi" class="logo d-lg-none mb-2">
-                                        <h5 class="text-gray-800 text-uppercase mb-4 d-lg-none"><span>Sistem Penunjang Keputusan</span><br>Penentuan Siswa Berprestasi</h5>
+                                        <img src="assets/img/logo_birayang.png" alt="SDN 1 Birayang" title="SDN 1 Birayang" class="logo d-lg-none mb-2">
+                                        <h5 class="text-gray-800 text-uppercase mb-4 d-lg-none"><span>SPK Penerima Beasiswa Tahfidz</span><br>SD Negeri 1 Birayang</h5>
                                         <p class="h6 text-gray-800 mb-4 d-lg-none">Admin Login</p>
                                         <p class="h5 text-gray-800 mb-4 d-lg-block d-none">Admin Login</p>
                                         <!-- <img src="assets/img/SMKN9_Bekasi.png" alt="" class="img-profile w-25"> -->
@@ -133,7 +136,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-success btn-user btn-block rounded-0" name="masuk">
+                                        <button type="submit" class="btn btn-custom btn-user btn-block rounded-0" name="masuk">
                                             <i class="fas fa-sign-in-alt fa-fw"></i> Masuk
                                         </button>
                                         <hr>

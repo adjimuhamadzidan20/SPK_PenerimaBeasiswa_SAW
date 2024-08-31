@@ -12,7 +12,6 @@
             document.location.href = "index.php?page=data_kriteria";
         </script>';
 	}
-
 ?>
 
 <!-- Page Heading -->
@@ -36,7 +35,7 @@
 <!-- DataTales Example -->
 <div class="card mb-4 rounded-0">
   <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
-		<a href="index.php?page=tambah_kriteria" class="btn btn-success btn-square btn-sm rounded-0">
+		<a href="index.php?page=tambah_kriteria" class="btn btn-custom btn-square btn-sm rounded-0">
       <i class="fas fa-plus fa-sm"></i> Tambah Kriteria
     </a>
     <h6 class="m-0 text-gray-800 d-none d-sm-block">Tabel Data Kriteria & Bobot</h6>
@@ -65,11 +64,11 @@
               <td class="text-nowrap"><?= $krit['Nilai_Bobot']; ?></td>
               <td class="text-nowrap"><?= $krit['Atribut']; ?></td>
               <td class="text-center text-nowrap">
-              	<a href="index.php?page=edit_kriteria&edit=<?= $krit['ID_Kriteria']; ?>" class="btn btn-success btn-square rounded-0" title="Edit Kriteria">
+              	<a href="index.php?page=edit_kriteria&edit=<?= $krit['ID_Kriteria']; ?>" class="btn btn-custom btn-square rounded-0" title="Edit Kriteria">
                     <i class="fas fa-edit"></i>
                 </a>
                 
-                <button class="btn btn-success btn-square rounded-0" title="Hapus Kriteria" data-toggle="modal" data-target="#hapusid<?= $krit['ID_Kriteria']; ?>">
+                <button class="btn btn-custom btn-square rounded-0" title="Hapus Kriteria" data-toggle="modal" data-target="#hapusid<?= $krit['ID_Kriteria']; ?>">
                     <i class="fas fa-trash"></i>
                 </button>
 
@@ -86,7 +85,7 @@
 								            </div>
 								            <div class="modal-footer">
 								                <button class="btn btn-secondary rounded-0" type="button" data-dismiss="modal"><i class="fas fa-chevron-left fa-sm"></i> Kembali</button>
-								                <a class="btn btn-success rounded-0" href="index.php?page=data_kriteria&delete=<?= $krit['ID_Kriteria']; ?>"><i class="fas fa-trash fa-sm"></i> Hapus</a>
+								                <a class="btn btn-custom rounded-0" href="index.php?page=data_kriteria&delete=<?= $krit['ID_Kriteria']; ?>"><i class="fas fa-trash fa-sm"></i> Hapus</a>
 								            </div>
 								        </div>
 								    </div>

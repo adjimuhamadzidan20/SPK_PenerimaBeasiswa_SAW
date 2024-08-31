@@ -25,8 +25,8 @@
         		?>
                 <tr>
                     <td class="text-nowrap"><?= $no; ?></td>
-                    <td class="text-nowrap"><?= $res['Nama_Siswa']; ?></td>
-                    <td class="text-nowrap"><?= $res['hasil_pref']; ?></td>  
+                    <td class="text-nowrap text-uppercase"><?= $res['Nama_Siswa']; ?></td>
+                    <td class="text-nowrap"><?= round($res['hasil_pref'], 3); ?></td>  
                 </tr>
               	<?php endwhile; ?>
             </tbody>

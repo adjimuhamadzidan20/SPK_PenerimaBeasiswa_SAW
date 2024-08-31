@@ -13,7 +13,7 @@
       <thead>
         <tr>
           <th class="text-nowrap">Nama Siswa</th>
-          <th class="text-nowrap">Nilai Akhir</th>
+          <th class="text-nowrap">Nilai Akhir (Preferensi)</th>
           <th class="text-nowrap">Peringkat</th>
         </tr>
       </thead>
@@ -24,8 +24,8 @@
     			$no++;	
     		?>
           <tr>
-            <td class="text-nowrap"><?= $res['Nama_Siswa']; ?></td>
-            <td class="text-nowrap"><?= $res['hasil_pref']; ?></td>
+            <td class="text-nowrap text-uppercase"><?= $res['Nama_Siswa']; ?></td>
+            <td class="text-nowrap"><?= round($res['hasil_pref'], 3); ?></td>
             <td class="text-nowrap"><?= $no; ?></td>  
           </tr>
       	<?php endwhile; ?>

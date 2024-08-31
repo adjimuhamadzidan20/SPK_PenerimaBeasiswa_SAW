@@ -1,0 +1,22 @@
+Noted: Pastikan xampp sudah terinstal di laptop atau PC
+
+1. Pertama hidupkan xampp dengan klik start, pilih klik start Apache dan MySQL
+
+2. Jika sudah klik admin pada bagian MySQL 
+
+3. Setelah klik admin maka akan di arahkan ke browser dan menuju halaman phpmyadmin, lalu buat
+database baru "klik baru" kemudian beri nama "spkpenerimabeasiswa" lalu klik "buat"
+
+4. Setelah membuat database, selanjutnya import file database, pilih menu pada bagian atas 
+yaitu "import" lalu klik, pilih file untuk file databasenya ada dalam folder database
+
+5. Setelah memilih file database kemudian klik "kirim"
+
+6. file database sudah ter-import harap mengecek terlebih dahulu
+
+7. Jika telah di import dan sudah di cek semua, mulai jalankan webnya pada kolom URL masukkan 
+"http://localhost/SPKPenerimaBeasiswa/" kemudian enter
+
+8. Web sudah bisa di akses dengan menampilkan halaman login, silahkan login dengan
+memasukkan username & password yang sudah disediakan
+

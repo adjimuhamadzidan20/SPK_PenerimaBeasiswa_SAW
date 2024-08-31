@@ -74,7 +74,9 @@
                 while ($i <= $jumlah) :   
             ?>
                 <?php 
+                    $no = 0;
                     while ($krit = mysqli_fetch_assoc($quePen)) : 
+                    $no++;
                 ?>
                     <!-- id_penilaian -->
                     <input type="text" class="form-control rounded-0" id="exampleFormControlInput1" name="id_penilai[]" 
@@ -85,23 +87,10 @@
                     value="<?= $krit['ID_Kriteria']; ?>" readonly="readonly" hidden="hidden">
 
                     <div class="mb-4">
-                      <label for="exampleFormControlInput1" class="form-label"><?= $krit['Nama_Kriteria']; ?> </label>
-                        <select class="form-control rounded-0" aria-label="Default select example" name="nilai[]">
-                        <option value="<?= $krit['Nilai']; ?>"><?= $krit['Nilai']; ?></option>
-                          <?php 
-                            $sub = "SELECT data_subkriteria.ID_Sub, data_kriteria.ID_Kriteria, data_kriteria.Nama_Kriteria, 
-                            data_subkriteria.Nama_Subkriteria, data_subkriteria.Keterangan, data_subkriteria.Nilai FROM 
-                            data_subkriteria INNER JOIN data_kriteria ON data_subkriteria.ID_Kriteria = data_kriteria.ID_Kriteria 
-                            WHERE Nama_Kriteria = '$krit[Nama_Kriteria]'";
-
-                            $datasub = mysqli_query($koneksi_db, $sub);
-
-                            while ($res = mysqli_fetch_assoc($datasub)) :
-                          ?>  
-                            <option value="<?= $res['Nilai']; ?>"><?= $res['Nama_Subkriteria']; ?> - <?= $res['Keterangan']; ?> -
-                            <?= $res['Nilai']; ?></option>
-                          <?php endwhile; ?>
-                        </select>
+                        <label for="exampleFormControlInput1" class="form-label">
+                        (<?= 'C'. $kode = str_pad($no, 2, '0', STR_PAD_LEFT); ?>) <?= $krit['Nama_Kriteria']; ?></label>
+                        <input type="text" class="form-control rounded-0" id="exampleFormControlInput1" name="nilai[]" 
+                        value="<?= $krit['Nilai']; ?>" required>
                     </div>
                 <?php endwhile; ?>
             <?php 
@@ -111,7 +100,7 @@
             <a href="index.php?page=data_penilaian" class="btn btn-secondary btn-square rounded-0">
                 <i class="fas fa-chevron-left fa-sm"></i> Kembali
             </a>
-            <button type="submit" class="btn btn-success btn-square rounded-0" name="edit">
+            <button type="submit" class="btn btn-custom btn-square rounded-0" name="edit">
                 <i class="fas fa-edit fa-sm"></i> Edit
             </button>
         </form>

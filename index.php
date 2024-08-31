@@ -17,15 +17,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="adjimuhamadzidan">
-    <link rel="icon" type="image/x-icon" href="assets/img/SMKN9_Bekasi.ico">
+    <link rel="icon" type="image/x-icon" href="assets/img/logo_birayang.ico">
 
-    <title>SPK Siswa Berprestasi - Dashboard</title>
+    <title>SPK Penerima Beasiswa Tahfidz - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" 
+    rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -39,22 +38,52 @@
         }
 
         .sidebar {
-            background-color: #01a3a4;
+            background-color: #192a56;
+        }
+
+        .judul-navbar {
+            font-size: 14px;
+             margin-left: 12px;
+        }
+
+        .img-profile {
+            width: 50px;
+            height: 50px;
         }
 
         .pagination .active .page-link {
-            background-color: #01a3a4;
-            border-color: #01a3a4;
+            background-color: #192a56;
+            border-color: #192a56;
         }
 
-        .btn-success {
-            background-color: #01a3a4;
-            border-color: #01a3a4;
+        .dataTables_paginate .paginate_button.page-item.active a {
+            background-color: #192a56;
+            border-color: #192a56;
         }
 
-        .btn-success:hover {
-            background-color: #019394;
-            border-color: #019394;
+        .dataTables_paginate .paginate_button.page-item:not(.active) a {
+            color: #192a56;
+        }  
+
+        .btn-custom {
+            background-color: #192a56;
+            border-color: #192a56;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #100C3D;
+            border-color: #100C3D;
+            color: white;
+        }
+
+        .text-info {
+            color: #192a56 !important;
+        }
+
+        .border-left-info {
+            border-left: .25rem solid #192a56 !important;
+            border-left-color: #192a56 !important;
         }
         
     </style>
@@ -71,12 +100,12 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php?page=dashboard">
-                <div class="sidebar-brand-icon p-2">
+                <div class="sidebar-brand-icon p-0">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <!-- <h1 class="h2 font-weight-bold my-auto">SPK</h1> -->
-                    <img src="assets/img/SMKN9_Bekasi.png" alt="" class="img-profile w-100">
+                    <img src="assets/img/logo_birayang.png" alt="SDN 1 Birayang" class="img-profile">
                 </div>
-                <div class="sidebar-brand-text mx-2 text-left font-weight-bold">SPK Siswa Berprestasi</div>
+                <div class="sidebar-brand-text text-left font-weight-bold judul-navbar">SPK Penerima Beasiswa</div>
             </a>
 
             <!-- Divider -->
@@ -125,7 +154,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>SPK Siswa Berprestasi SMKN 9 Kota Bekasi - 2023</span>
+                        <span>SPK Penerima Beasiswa Tahfidz SD Negeri 1 Birayang - <?= date("Y"); ?></span>
                     </div>
                 </div>
             </footer>
@@ -156,7 +185,7 @@
                 <div class="modal-body">Klik "Logout" untuk meninggalkan dashboard</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary rounded-0" type="button" data-dismiss="modal"><i class="fas fa-chevron-left fa-sm"></i> Kembali</button>
-                    <a class="btn btn-success rounded-0" href="logout.php"><i class="fas fa-sign-out-alt fa-sm"></i> Logout</a>
+                    <a class="btn btn-custom rounded-0" href="logout.php"><i class="fas fa-sign-out-alt fa-sm"></i> Logout</a>
                 </div>
             </div>
         </div>

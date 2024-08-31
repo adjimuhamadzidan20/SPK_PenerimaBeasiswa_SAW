@@ -8,17 +8,16 @@
 	$tgl1 = strftime("%A, %d %B %Y | %T");
 	$tgl2 = strftime("%d %B %Y");
 
-	$pref = mysqli_query($koneksi_db, "SELECT hasil_preferensi.ID_Pref, hasil_preferensi.ID_Alter, data_alternatif.NISN,
-	data_alternatif.Nama_Siswa, data_alternatif.Kelas, hasil_preferensi.hasil_pref FROM hasil_preferensi INNER JOIN 
+	$pref = mysqli_query($koneksi_db, "SELECT hasil_preferensi.ID_Pref, hasil_preferensi.ID_Alter, data_alternatif.Nama_Siswa, data_alternatif.Kelas, hasil_preferensi.hasil_pref FROM hasil_preferensi INNER JOIN 
 	data_alternatif ON hasil_preferensi.ID_Alter = data_alternatif.ID_Alter ORDER BY hasil_pref DESC");
 
 	$mpdf = new \Mpdf\Mpdf();
 	$mpdf->debug = false;
 
 	$header = '<div class="head" style="border-bottom: 5px double black; font-family: sans-serif;">	
-							<img src="../img/SMKN9_Bekasi.png" alt="" width="100" height="100" style="float: left; margin-right: 15px;">
-							<h3 style="float: right; padding-top: 15px;">Laporan Hasil Normalisasi<br>SPK Penentuan Siswa Berprestasi<br>
-							SMK Negeri 9 Kota Bekasi</h3>
+							<img src="../img/logo_birayang.png" alt="" width="100" height="100" style="float: left; margin-right: 15px;">
+							<h3 style="float: right; padding-top: 15px;">Laporan Hasil Normalisasi<br>SPK Penerima Beasiswa Tahfidz<br>
+							SD Negeri 1 Birayang</h3>
 						</div>'; 
 
 	$subhead = '<div style="font-family: sans-serif;">
@@ -30,10 +29,9 @@
 	            <thead>
 	                <tr>
 	                		<th>No</th>
-	                		<th>NISN</th>
 	                    <th>Nama Siswa</th>
 	                    <th>Kelas</th>
-	                    <th>Nilai Akhir</th>
+	                    <th>Nilai Akhir (Pref)</th>
 	                    <th>Peringkat</th>
 	                </tr>
 	            </thead>
@@ -43,10 +41,9 @@
             			$no++;	
          	$tabel .= '<tr>
          							<td>'. $no .'</td>
-                  		<td>'. $res['NISN'] .'</td>
                       <td>'. $res['Nama_Siswa'] .'</td>
                       <td>'. $res['Kelas'] .'</td>
-                      <td>'. $res['hasil_pref'] .'</td>
+                      <td>'. round($res['hasil_pref'], 3) .'</td>
                       <td>'. $no .'</td>  
 	                  </tr>';
             			endwhile;
@@ -54,7 +51,7 @@
 	      </table>';
 
   $date = '<div style="text-align: right; margin-top:50px; font-family: sans-serif;">
-					 	<p>Kota Bekasi, '. $tgl2 .'</p>
+					 	<p>Kab. Hulu Sungai Tengah, '. $tgl2 .'</p>
 					 	<p style="margin-right: 60px;">Admin</p>
 					 	<br><br>
 					 	<p style="margin-right: 12px;">..................................</p>
@@ -65,7 +62,7 @@
 	$mpdf->WriteHTML($subhead);
 	$mpdf->WriteHTML($tabel);
 	$mpdf->WriteHTML($date);
-	$mpdf->SetFooter('SPK Penentuan Siswa Berprestasi|{PAGENO}|Hasil Perankingan');
+	$mpdf->SetFooter('SPK Penerima Beasiswa Tahfidz|{PAGENO}|Hasil Perankingan');
 	$mpdf->Output('Laporan Perankingan.pdf', \Mpdf\Output\Destination::INLINE);
 
 ?>

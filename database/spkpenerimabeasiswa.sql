@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jul 2023 pada 17.55
+-- Waktu pembuatan: 25 Agu 2024 pada 14.23
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.13
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `spksiswaprestasi`
+-- Database: `spkpenerimabeasiswa`
 --
 
 -- --------------------------------------------------------
@@ -48,22 +48,32 @@ INSERT INTO `admin` (`ID_User`, `username`, `password`) VALUES
 
 CREATE TABLE `data_alternatif` (
   `ID_Alter` int(15) NOT NULL,
-  `NISN` varchar(30) DEFAULT NULL,
   `Nama_Siswa` varchar(100) DEFAULT NULL,
-  `JK` varchar(100) DEFAULT NULL,
-  `Kelas` varchar(100) DEFAULT NULL
+  `Jenis_Kelamin` varchar(100) DEFAULT NULL,
+  `Kelas` varchar(100) DEFAULT NULL,
+  `Alamat` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `data_alternatif`
 --
 
-INSERT INTO `data_alternatif` (`ID_Alter`, `NISN`, `Nama_Siswa`, `JK`, `Kelas`) VALUES
-(1, '0067726025', 'ALDHY ACHMAD FEBRYANSYAH', 'L', 'X SIJA 1'),
-(2, '0058802698', 'ALIF FAJAR SYA`BAN', 'L', 'X SIJA 1'),
-(3, '0061405048', 'ANGGITA RUSTI AMELIA', 'P', 'X SIJA 1'),
-(4, '0056261244', 'CARLES RIZKY IRFANZAH', 'L', 'X SIJA 1'),
-(5, '0051848951', 'CEMARA AYU NURILAH', 'P', 'X SIJA 1');
+INSERT INTO `data_alternatif` (`ID_Alter`, `Nama_Siswa`, `Jenis_Kelamin`, `Kelas`, `Alamat`) VALUES
+(15, 'Aisya', 'Perempuan', 'Kelas 1', 'Jakarta'),
+(16, 'Fajril', 'Laki-laki', 'Kelas 1', 'Lampung'),
+(17, 'Nizam', 'Laki-laki', 'Kelas 1', 'Lampung'),
+(18, 'Umar', 'Laki-laki', 'Kelas 1', 'Lampung'),
+(19, 'Aulia', 'Perempuan', 'Kelas 1', 'Purwokerto'),
+(20, 'Royan', 'Perempuan', 'Kelas 1', 'Bandung'),
+(21, 'Rafa', 'Laki-laki', 'Kelas 1', 'Jakarta'),
+(22, 'Nadia', 'Perempuan', 'Kelas 1', 'Jakarta'),
+(23, 'Riswan', 'Laki-laki', 'Kelas 1', 'Bandung'),
+(24, 'Azriel', 'Laki-laki', 'Kelas 1', 'Bandung'),
+(25, 'Adam', 'Laki-laki', 'Kelas 1', 'Jakarta'),
+(26, 'Yunita', 'Perempuan', 'Kelas 1', 'Lampung'),
+(27, 'Anggi', 'Perempuan', 'Kelas 1', 'Lampung'),
+(28, 'Tiara', 'Perempuan', 'Kelas 1', 'Jakarta'),
+(29, 'Nida', 'Perempuan', 'Kelas 1', 'Tangerang');
 
 -- --------------------------------------------------------
 
@@ -74,7 +84,7 @@ INSERT INTO `data_alternatif` (`ID_Alter`, `NISN`, `Nama_Siswa`, `JK`, `Kelas`) 
 CREATE TABLE `data_kriteria` (
   `ID_Kriteria` int(15) NOT NULL,
   `Nama_Kriteria` varchar(100) DEFAULT NULL,
-  `Nilai_Bobot` float DEFAULT NULL,
+  `Nilai_Bobot` int(11) DEFAULT NULL,
   `Atribut` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -83,10 +93,10 @@ CREATE TABLE `data_kriteria` (
 --
 
 INSERT INTO `data_kriteria` (`ID_Kriteria`, `Nama_Kriteria`, `Nilai_Bobot`, `Atribut`) VALUES
-(2, 'Nilai Rapot (rata-rata)', 0.4, 'Benefit'),
-(3, 'Sikap/Karakter', 0.3, 'Benefit'),
-(4, 'Ekstrakurikuler', 0.2, 'Benefit'),
-(7, 'Kehadiran/Absensi', 0.1, 'Benefit');
+(17, 'Jumlah Hapalan Surat Pendek', 40, 'Benefit'),
+(18, 'Makrijul Huruf', 30, 'Benefit'),
+(19, 'Ketepatan Tajwid', 20, 'Benefit'),
+(20, 'Surat Keterangan Tidak Mampu', 10, 'Benefit');
 
 -- --------------------------------------------------------
 
@@ -106,72 +116,66 @@ CREATE TABLE `data_penilaian` (
 --
 
 INSERT INTO `data_penilaian` (`ID_Penilaian`, `ID_Alter`, `ID_Kriteria`, `Nilai`) VALUES
-(159, 1, 2, 4),
-(160, 1, 3, 4),
-(161, 1, 4, 1),
-(162, 1, 7, 8),
-(163, 2, 2, 5),
-(164, 2, 3, 5),
-(165, 2, 4, 1),
-(166, 2, 7, 7),
-(167, 3, 2, 5),
-(168, 3, 3, 5),
-(169, 3, 4, 1),
-(170, 3, 7, 8),
-(179, 4, 2, 5),
-(180, 4, 3, 4),
-(181, 4, 4, 1),
-(182, 4, 7, 8),
-(183, 5, 2, 6),
-(184, 5, 3, 4),
-(185, 5, 4, 1),
-(186, 5, 7, 8);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `data_subkriteria`
---
-
-CREATE TABLE `data_subkriteria` (
-  `ID_Sub` int(15) NOT NULL,
-  `ID_Kriteria` int(15) DEFAULT NULL,
-  `Nama_Subkriteria` varchar(120) DEFAULT NULL,
-  `Keterangan` varchar(100) DEFAULT NULL,
-  `Nilai` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `data_subkriteria`
---
-
-INSERT INTO `data_subkriteria` (`ID_Sub`, `ID_Kriteria`, `Nama_Subkriteria`, `Keterangan`, `Nilai`) VALUES
-(1, 2, '95-100', 'Sangat Tinggi', 10),
-(3, 2, '93-95', 'Tinggi', 9),
-(4, 2, '90-92', 'Cukup Tinggi', 8),
-(5, 2, '86-88', 'Sangat Baik', 7),
-(6, 2, '83-85', 'Baik', 6),
-(7, 2, '80-82', 'Cukup Baik', 5),
-(8, 2, '77-79', 'Sedang', 4),
-(9, 2, '74-76', 'Kurang', 3),
-(10, 2, '71-73', 'Cukup Kurang ', 2),
-(11, 2, '-70', 'Sangat Kurang', 1),
-(12, 3, 'A', 'Sangat Baik', 5),
-(13, 3, 'B', 'Baik', 4),
-(14, 3, 'C', 'Cukup', 3),
-(15, 3, 'D', 'Kurang ', 2),
-(16, 3, 'E', 'Sangat Kurang', 1),
-(17, 4, 'A', 'Sangat Baik', 8),
-(18, 4, 'B', 'Baik', 7),
-(19, 4, 'C', 'Cukup', 5),
-(20, 4, 'D', 'Kurang', 3),
-(21, 4, 'E', 'Nihil', 1),
-(23, 7, '1 sampai 3', 'Baik', 7),
-(24, 7, '4 sampai 5', 'Cukup', 5),
-(25, 7, '6 sampai 10', 'Kurang', 3),
-(26, 7, 'lebih dari 10', 'Sangat Kurang', 1),
-(67, 2, '-10', 'Buruk Sekali', 0),
-(68, 3, 'F', 'Buruk', 0);
+(1, 15, 17, 100),
+(2, 15, 18, 88),
+(3, 15, 19, 88),
+(4, 15, 20, 85),
+(5, 16, 17, 100),
+(6, 16, 18, 90),
+(7, 16, 19, 92),
+(8, 16, 20, 85),
+(9, 17, 17, 100),
+(10, 17, 18, 88),
+(11, 17, 19, 80),
+(12, 17, 20, 86),
+(13, 18, 17, 100),
+(14, 18, 18, 88),
+(15, 18, 19, 80),
+(16, 18, 20, 78),
+(17, 19, 17, 100),
+(18, 19, 18, 80),
+(19, 19, 19, 80),
+(20, 19, 20, 76),
+(21, 20, 17, 100),
+(22, 20, 18, 88),
+(23, 20, 19, 92),
+(24, 20, 20, 85),
+(25, 21, 17, 100),
+(26, 21, 18, 88),
+(27, 21, 19, 80),
+(28, 21, 20, 80),
+(29, 22, 17, 100),
+(30, 22, 18, 86),
+(31, 22, 19, 90),
+(32, 22, 20, 85),
+(33, 23, 17, 100),
+(34, 23, 18, 90),
+(35, 23, 19, 88),
+(36, 23, 20, 80),
+(37, 24, 17, 100),
+(38, 24, 18, 88),
+(39, 24, 19, 88),
+(40, 24, 20, 78),
+(41, 25, 17, 100),
+(42, 25, 18, 88),
+(43, 25, 19, 84),
+(44, 25, 20, 85),
+(45, 26, 17, 100),
+(46, 26, 18, 88),
+(47, 26, 19, 84),
+(48, 26, 20, 85),
+(49, 27, 17, 100),
+(50, 27, 18, 84),
+(51, 27, 19, 84),
+(52, 27, 20, 80),
+(53, 28, 17, 100),
+(54, 28, 18, 84),
+(55, 28, 19, 80),
+(56, 28, 20, 78),
+(57, 29, 17, 100),
+(58, 29, 18, 90),
+(59, 29, 19, 88),
+(60, 29, 20, 80);
 
 -- --------------------------------------------------------
 
@@ -186,32 +190,6 @@ CREATE TABLE `hasil_normalisasi` (
   `Hasil_Norm` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `hasil_normalisasi`
---
-
-INSERT INTO `hasil_normalisasi` (`ID_Norm`, `ID_Alter`, `ID_Kriteria`, `Hasil_Norm`) VALUES
-(664, 1, 2, 0.66666666666667),
-(665, 1, 3, 0.8),
-(666, 1, 4, 1),
-(667, 1, 7, 1),
-(668, 2, 2, 0.83333333333333),
-(669, 2, 3, 1),
-(670, 2, 4, 1),
-(671, 2, 7, 0.875),
-(672, 3, 2, 0.83333333333333),
-(673, 3, 3, 1),
-(674, 3, 4, 1),
-(675, 3, 7, 1),
-(676, 4, 2, 0.83333333333333),
-(677, 4, 3, 0.8),
-(678, 4, 4, 1),
-(679, 4, 7, 1),
-(680, 5, 2, 1),
-(681, 5, 3, 0.8),
-(682, 5, 4, 1),
-(683, 5, 7, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -223,17 +201,6 @@ CREATE TABLE `hasil_preferensi` (
   `ID_Alter` int(15) DEFAULT NULL,
   `hasil_pref` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `hasil_preferensi`
---
-
-INSERT INTO `hasil_preferensi` (`ID_Pref`, `ID_Alter`, `hasil_pref`) VALUES
-(6, 1, 0.80666666666667),
-(7, 2, 0.92083333333333),
-(8, 3, 0.93333333333333),
-(9, 4, 0.87333333333333),
-(10, 5, 0.94);
 
 --
 -- Indexes for dumped tables
@@ -266,13 +233,6 @@ ALTER TABLE `data_penilaian`
   ADD KEY `data_penilaian_FK` (`ID_Kriteria`);
 
 --
--- Indeks untuk tabel `data_subkriteria`
---
-ALTER TABLE `data_subkriteria`
-  ADD PRIMARY KEY (`ID_Sub`),
-  ADD KEY `data_subkriteria_FK` (`ID_Kriteria`);
-
---
 -- Indeks untuk tabel `hasil_normalisasi`
 --
 ALTER TABLE `hasil_normalisasi`
@@ -301,37 +261,31 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `data_alternatif`
 --
 ALTER TABLE `data_alternatif`
-  MODIFY `ID_Alter` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Alter` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_kriteria`
 --
 ALTER TABLE `data_kriteria`
-  MODIFY `ID_Kriteria` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID_Kriteria` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_penilaian`
 --
 ALTER TABLE `data_penilaian`
-  MODIFY `ID_Penilaian` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
-
---
--- AUTO_INCREMENT untuk tabel `data_subkriteria`
---
-ALTER TABLE `data_subkriteria`
-  MODIFY `ID_Sub` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `ID_Penilaian` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT untuk tabel `hasil_normalisasi`
 --
 ALTER TABLE `hasil_normalisasi`
-  MODIFY `ID_Norm` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=684;
+  MODIFY `ID_Norm` int(15) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `hasil_preferensi`
 --
 ALTER TABLE `hasil_preferensi`
-  MODIFY `ID_Pref` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Pref` int(15) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -343,12 +297,6 @@ ALTER TABLE `hasil_preferensi`
 ALTER TABLE `data_penilaian`
   ADD CONSTRAINT `data_penilaian_FK` FOREIGN KEY (`ID_Kriteria`) REFERENCES `data_kriteria` (`ID_Kriteria`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `data_penilaian_FK_1` FOREIGN KEY (`ID_Alter`) REFERENCES `data_alternatif` (`ID_Alter`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `data_subkriteria`
---
-ALTER TABLE `data_subkriteria`
-  ADD CONSTRAINT `data_subkriteria_FK` FOREIGN KEY (`ID_Kriteria`) REFERENCES `data_kriteria` (`ID_Kriteria`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `hasil_normalisasi`

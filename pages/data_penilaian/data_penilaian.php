@@ -5,7 +5,7 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-1">
-  <h1 class="h3 text-gray-800">Penilaian Awal</h1>
+  <h1 class="h3 text-gray-800">Data Nilai Siswa</h1>
 </div>
 
 <!-- popup status -->
@@ -24,7 +24,7 @@
 <!-- DataTales Example -->
 <div class="card mb-4 rounded-0">
   <div class="card-header bg-white py-3 d-flex align-items-center justify-content-between">
-    <h6 class="m-0 text-gray-800">Tabel Data Alternatif Siswa</h6>
+    <h6 class="m-0 text-gray-800">Tabel Data Siswa atau Alternatif</h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -44,8 +44,8 @@
       			$no++;	
       		?>
             <tr>
-              <td class="text-nowrap"><?= 'A'. $kode = str_pad($no, 2, '0', STR_PAD_LEFT); ?></td>
-              <td class="text-nowrap"><?= $alter['Nama_Siswa']; ?></td>
+              <td class="text-nowrap"><?= 'D'. $kode = str_pad($no, 2, '0', STR_PAD_LEFT); ?></td>
+              <td class="text-nowrap text-uppercase"><?= $alter['Nama_Siswa']; ?></td>
               <td class="text-center text-nowrap">
 
               	<?php  
@@ -58,17 +58,17 @@
                     <i class="fas fa-plus fa-sm"></i> Masukan Penilaian
                   </a>
                 <?php } else if ($jml > 0){ ?>
-                	<button class="btn btn-success btn-square rounded-0" title="Penilaian Telah Diinput" readonly="readonly">
+                	<button class="btn btn-custom btn-square rounded-0" title="Penilaian Telah Diinput" readonly="readonly">
                   	<i class="fas fa-check fa-sm"></i> Penilaian Terinput
                   </button>
                 <?php } ?>  
                 
               </td>
               <td class="text-center text-nowrap">
-              	<button type="button" data-siswa="<?= $alter['Nama_Siswa']; ?>" class="cek btn btn-success btn-square rounded-0" title="Lihat Penilaian">
+              	<button type="button" data-siswa="<?= $alter['Nama_Siswa']; ?>" class="cek btn btn-custom btn-square rounded-0" title="Lihat Penilaian">
                 	<i class="fas fa-eye"></i>
                 </button>
-              	<a href="index.php?page=edit_penilaian&edit=<?= $alter['Nama_Siswa']; ?>&id=<?= $alter['ID_Alter']; ?>" class="btn btn-success btn-square rounded-0" title="Edit Penilaian">
+              	<a href="index.php?page=edit_penilaian&edit=<?= $alter['Nama_Siswa']; ?>&id=<?= $alter['ID_Alter']; ?>" class="btn btn-custom btn-square rounded-0" title="Edit Penilaian">
                   <i class="fas fa-edit"></i>
                 </a>
               </td>
